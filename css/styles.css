@@ -213,3 +213,51 @@ footer.legal { text-align: center; color: var(--ink-muted); font-size: 11px; mar
 /* ---- Accesibilidad ------------------------------------------------------ */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ====================================================================== */
+/* Páginas legales (juego responsable, privacidad, términos)              */
+/* ====================================================================== */
+.doc { max-width: 760px; margin: 0 auto; padding: 0 18px 80px; }
+.doc .topbar { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.doc .back { color: var(--ink-muted); text-decoration: none; font-size: 13px; font-family: var(--font-display); }
+.doc .back:hover { color: var(--accent); }
+.prose { line-height: 1.65; }
+.prose h1 { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.02em; margin: 8px 0 4px; }
+.prose h2 { font-family: var(--font-display); font-size: 18px; margin: 30px 0 10px; }
+.prose h3 { font-size: 15px; margin: 20px 0 6px; }
+.prose p, .prose li { color: #C9CFF2; font-size: 15px; }
+.prose a { color: var(--accent); }
+.prose ul { padding-left: 20px; }
+.prose li { margin: 5px 0; }
+.prose .lead { font-size: 16px; color: var(--ink); }
+.prose .updated { color: var(--ink-muted); font-size: 12px; }
+.callout { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm); padding: 14px 16px; margin: 18px 0; }
+.callout.warn { border-left-color: var(--hot); }
+.resource { display: flex; flex-direction: column; gap: 2px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 12px 14px; margin: 10px 0; }
+.resource b { font-family: var(--font-display); }
+.resource span { color: var(--ink-muted); font-size: 13px; }
+.template-note { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+
+/* ---- Age gate +18 ------------------------------------------------------- */
+.agegate {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center;
+  background: rgba(6,9,24,0.92); backdrop-filter: blur(6px); padding: 20px;
+}
+.agegate[hidden] { display: none; }
+.agegate .box {
+  max-width: 380px; width: 100%; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 26px 22px; text-align: center;
+}
+.agegate .mark {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 14px;
+  background: radial-gradient(circle at 34% 28%, #fff7df, var(--accent) 58%, #b9842a);
+  display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; color: #2a1c05; font-size: 18px;
+}
+.agegate h2 { font-family: var(--font-display); margin: 0 0 8px; font-size: 20px; }
+.agegate p { color: var(--ink-muted); font-size: 14px; margin: 0 0 18px; line-height: 1.5; }
+.agegate .actions { display: flex; gap: 10px; }
+.agegate .actions .btn { flex: 1; }
+.agegate .deny { font-size: 12px; color: var(--ink-muted); margin-top: 14px; }
+.agegate .deny a { color: var(--ink-muted); }

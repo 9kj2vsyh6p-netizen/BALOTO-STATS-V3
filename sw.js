@@ -1,12 +1,15 @@
 /* sw.js — Service Worker de Baloto Stats V3.
    App shell: cache-first. Datos (resultados.json): network-first con respaldo. */
-const VERSION = "v3.0.0";
+const VERSION = "v3.1.0";
 const SHELL_CACHE = "bs3-shell-" + VERSION;
 const DATA_CACHE = "bs3-data-" + VERSION;
 
 const SHELL = [
   "./",
   "./index.html",
+  "./juego-responsable.html",
+  "./terminos.html",
+  "./privacidad.html",
   "./manifest.json",
   "./css/styles.css",
   "./js/data.js",
@@ -16,6 +19,7 @@ const SHELL = [
   "./js/charts.js",
   "./js/ui.js",
   "./js/app.js",
+  "./js/agegate.js",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js",
