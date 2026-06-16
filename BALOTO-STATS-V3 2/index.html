@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Baloto Stats V3</title>
+  <meta name="description" content="Estadísticas históricas y generador inteligente para Baloto, Revancha y MiLoto." />
+  <meta name="theme-color" content="#0E1330" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="appbar">
+      <div class="brand">
+        <div class="brand-mark">B3</div>
+        <div>
+          <div class="brand-title">Baloto <b>Stats</b> V3</div>
+          <div class="brand-sub">Análisis estadístico</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span id="sampleBadge" class="badge" hidden>Datos de muestra</span>
+        <div class="switch" role="tablist" aria-label="Juego">
+          <button data-game="baloto" class="is-active">Baloto</button>
+          <button data-game="revancha">Revancha</button>
+          <button data-game="miloto">MiLoto</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="view" aria-live="polite"><div class="loading">Cargando datos…</div></main>
+
+    <footer class="legal">
+      Baloto Stats V3 · herramienta estadística no oficial, sin relación con el operador del juego.<br>
+      Define tus límites. Juega legal y con responsabilidad. +18.<br>
+      <a href="juego-responsable.html" style="color:var(--accent)">Juego responsable</a> ·
+      <a href="terminos.html" style="color:var(--ink-muted)">Términos</a> ·
+      <a href="privacidad.html" style="color:var(--ink-muted)">Privacidad</a>
+    </footer>
+  </div>
+
+  <nav class="bottomnav" aria-label="Secciones">
+    <div class="inner">
+      <button class="navbtn is-active" data-section="dashboard">Dashboard</button>
+      <button class="navbtn" data-section="frecuencias">Frecuencias</button>
+      <button class="navbtn" data-section="analisis">Análisis</button>
+      <button class="navbtn" data-section="generador">Generador</button>
+    </div>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/agegate.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="js/generators.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
