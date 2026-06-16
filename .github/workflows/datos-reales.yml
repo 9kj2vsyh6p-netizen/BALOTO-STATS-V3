@@ -1,0 +1,41 @@
+name: Datos Reales (Baloto + Revancha)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  datos-reales:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r scripts/requirements.txt
+
+      - name: Probar la API (muestra el JSON)
+        run: python scripts/scraper.py --probe || true
+
+      - name: Reconstruir histórico real
+        run: python scripts/scraper.py --rebuild --since 2017/01 --debug
+
+      - name: Publicar datos
+        run: |
+          git config user.name  "baloto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain data/resultados.json)" ]]; then
+            git add data/resultados.json
+            git commit -m "data: historico real Baloto + Revancha"
+            git push
+            echo "Datos reales publicados."
+          else
+            echo "Sin cambios: la API no devolvio datos (revisa el log del probe arriba)."
+          fi
